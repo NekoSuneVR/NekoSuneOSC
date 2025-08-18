@@ -3,7 +3,7 @@
 A growing collection of handy and fun
 [VRCOSC](https://github.com/VolcanicArts/VRCOSC) modules!
 
--   [🛠 Installation](#-installation)\
+-   [🛠 Installation](#-installation)
 -   [📦 Modules](#-modules)
     -   [🔊 Nekos Audiolink](#-nekos-audiolink)
 

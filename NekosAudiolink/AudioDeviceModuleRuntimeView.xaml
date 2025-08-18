@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="NekoSuneOSC.NekosAudiolink.AudioDeviceModuleRuntimeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+    xmlns:core="clr-namespace:VRCOSC.App.UI.Core;assembly=VRCOSC.App"
+    mc:Ignorable="d"
+    xmlns:common="clr-namespace:NekoSuneOSC.Common">
+    <UserControl.Resources>
+        <common:AllButFirstToVisibilityConverter x:Key="AllButFirstToVisibilityConverter" />
+        <common:NonEmptyStringToVisibilityConverter x:Key="NonEmptyStringToVisibilityConverter" />
+    </UserControl.Resources>
+    <StackPanel>
+        <ComboBox
+            x:Name="DeviceSelection"
+            ItemsSource="{Binding AudioDevices}"
+            SelectedValue="{Binding SelectedDeviceId.Value, Mode=TwoWay}"
+            DisplayMemberPath="FriendlyName"
+            SelectedValuePath="ID"
+            LostMouseCapture="DeviceSelection_OnLostMouseCapture"
+            SelectionChanged="DeviceSelection_OnSelectionChanged"
+            Background="{StaticResource CBackground3}"
+            FontSize="16"
+            VerticalAlignment="Top"
+            Margin="0 5">
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="ComboBoxItem">
+                    <Setter Property="IsEnabled" Value="True"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsEnabled}" Value="False">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ComboBox.ItemContainerStyle>
+        </ComboBox>
+        <TextBlock
+            Text="{Binding ErrorMessage}"
+            Visibility="{Binding ErrorMessage, Converter={StaticResource NonEmptyStringToVisibilityConverter}}"
+            Foreground="Red"
+            FontWeight="Bold"
+            Margin="0,2,0,0"
+            FontSize="16"
+        />
+        <GroupBox Foreground="{StaticResource CForeground1}" Header="Disabled Audio Outputs" Margin="0,10,0,0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Center" VerticalContentAlignment="Center">
+            <ListBox ItemsSource="{Binding DisabledDevices}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Center" VerticalContentAlignment="Center" AlternationCount="1000">
+                <ListBox.Resources>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <StackPanel>
+                                        <Border Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(ItemsControl.AlternationIndex), Converter={StaticResource AllButFirstToVisibilityConverter}}" Height="2" Margin="0,2,0,2" Background="#33000000" />
+                                        <ContentPresenter />
+                                    </StackPanel>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.Resources>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="4,0,0,0">
+                            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding FriendlyName}" Grid.Column="0" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" FontSize="16" FontWeight="Regular" HorizontalAlignment="Stretch" VerticalAlignment="Center" TextAlignment="Left" />
+                                <core:IconButton Tag="{Binding}" Click="RemoveDisabledDevice"  Grid.Column="1" ButtonColour="Red" Icon="Solid_Minus" Width="25" Height="25" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </GroupBox>
+    </StackPanel>
+</UserControl>

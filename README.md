@@ -24,9 +24,6 @@ application.
 > 💡 Have an idea for a feature or module? Open an issue or suggestion!\
 > 🐞 Found a bug? Please report it so I can fix it quickly.
 
-![VRCOSC package
-installation](https://github.com/user-attachments/assets/fd67f861-84ff-4727-b3fb-94a4b5942cd8)
-
 ------------------------------------------------------------------------
 
 ## 📦 Modules
@@ -70,8 +67,3 @@ VRChat or other OSC-compatible apps.
         the **Disabled Device List** (you can remove them if needed).\
 3.  (Optional) Adjust the **sliders** to customize analysis to your
     taste.
-
-![Module settings and
-parameters](https://github.com/user-attachments/assets/43d919ba-de6f-4aa5-a3c0-5a3d09e92561)\
-![Run tab with device
-selection](https://github.com/user-attachments/assets/0f749660-2c17-4639-a49f-ac987283750c)

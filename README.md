@@ -36,6 +36,12 @@ It provides OSC parameters for **volume**, **stereo direction**, and
 **frequency bands (Low, Bass, Mid, Treble)** that you can use inside
 VRChat or other OSC-compatible apps.
 
+Want to Credits to [FuviiPeshu](https://github.com/FuviiPeshu/FuviiOSC) for Making Official Module called **Squeak Meter**.
+
+I only added Option use Low mode since there is Upcoming Project for OSCAudiolink and it needed Low Audio aswell.
+
+See Whats Upcoming from Here https://x.com/NekoSuneVR/status/1957376360722129024
+
 #### ✨ Features
 
 -   🎧 **Real-time audio analysis** directly from your selected output

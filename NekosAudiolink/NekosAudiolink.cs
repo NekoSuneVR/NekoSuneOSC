@@ -61,12 +61,12 @@ public class NekosAudiolinkModule : Module
         CreateSlider(NekosAudiolinkSetting.TrebleBoost, "Treble boost", "Scalar for treble (default: 3.6)", 3.6f, 0.1f, 10, 0.1f);
         CreateSlider(NekosAudiolinkSetting.LowBoost, "Low boost", "Scalar for low frequencies (default: 2.5)", 2.5f, 0.1f, 10, 0.1f);
 
-        RegisterParameter<float>(NekosAudiolinkParameter.Volume, "VRCOSC/NekosAudiolink/Volume", ParameterMode.Write, "Volume", "Sends value depending on the volume level\nRange: 0 - 1");
-        RegisterParameter<float>(NekosAudiolinkParameter.Bass, "VRCOSC/NekosAudiolink/Bass", ParameterMode.Write, "Bass", "Sends the normalized amplitude (volume) of the bass frequency band (0 – 250 Hz)\nRange: 0 - 1");
-        RegisterParameter<float>(NekosAudiolinkParameter.Mid, "VRCOSC/NekosAudiolink/Mid", ParameterMode.Write, "Mid", "Sends the normalized amplitude (volume) of the mid frequency band (250 – 4000 Hz)\nRange: 0 - 1");
-        RegisterParameter<float>(NekosAudiolinkParameter.Treble, "VRCOSC/NekosAudiolink/Treble", ParameterMode.Write, "Treble", "Sends the normalized amplitude (volume) of the treble frequency band (4000 – 20000 Hz)\nRange: 0 - 1");
-        RegisterParameter<float>(NekosAudiolinkParameter.Direction, "VRCOSC/NekosAudiolink/Direction", ParameterMode.Write, "Direction", "Sends value depending on the audio direction (stereo balance)\nRange: 0 - 1 (where 0 = left, 0.5 = center, 1 = right)");
-        RegisterParameter<float>(NekosAudiolinkParameter.Low, "VRCOSC/NekosAudiolink/Low", ParameterMode.Write, "Low", "Sends the normalized amplitude (volume) of the low frequency band (20 – 120 Hz)\nRange: 0 - 1");
+        RegisterParameter<float>(NekosAudiolinkParameter.Volume, "VRCOSC/NekoSuneApps/Audiolink/Volume", ParameterMode.Write, "Volume", "Sends value depending on the volume level\nRange: 0 - 1");
+        RegisterParameter<float>(NekosAudiolinkParameter.Bass, "VRCOSC/NekoSuneApps/Audiolink/Bass", ParameterMode.Write, "Bass", "Sends the normalized amplitude (volume) of the bass frequency band (0 – 250 Hz)\nRange: 0 - 1");
+        RegisterParameter<float>(NekosAudiolinkParameter.Mid, "VRCOSC/NekoSuneApps/Audiolink/Mid", ParameterMode.Write, "Mid", "Sends the normalized amplitude (volume) of the mid frequency band (250 – 4000 Hz)\nRange: 0 - 1");
+        RegisterParameter<float>(NekosAudiolinkParameter.Treble, "VRCOSC/NekoSuneApps/Audiolink/Treble", ParameterMode.Write, "Treble", "Sends the normalized amplitude (volume) of the treble frequency band (4000 – 20000 Hz)\nRange: 0 - 1");
+        RegisterParameter<float>(NekosAudiolinkParameter.Direction, "VRCOSC/NekoSuneApps/Audiolink/Direction", ParameterMode.Write, "Direction", "Sends value depending on the audio direction (stereo balance)\nRange: 0 - 1 (where 0 = left, 0.5 = center, 1 = right)");
+        RegisterParameter<float>(NekosAudiolinkParameter.Low, "VRCOSC/NekoSuneApps/Audiolink/Low", ParameterMode.Write, "Low", "Sends the normalized amplitude (volume) of the low frequency band (20 – 120 Hz)\nRange: 0 - 1");
 
         SetRuntimeView(typeof(AudioDeviceModuleRuntimeView));
     }

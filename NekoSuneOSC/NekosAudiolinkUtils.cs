@@ -1,7 +1,7 @@
 using System;
 using NAudio.Dsp;
 
-namespace NekoSuneOSC.NekosAudiolink;
+namespace NekoSuneOSC.NekoSuneOSC.NekosAudiolink;
 
 public static class NekosAudiolinkUtils
 {
@@ -61,10 +61,10 @@ public static class NekosAudiolinkUtils
             }
         }
 
-        float low = lowBins > 0 ? (lowRaw / lowBins) * lowBoost : 0;
-        float bass = bassBins > 0 ? (bassRaw / bassBins) * bassBoost : 0;
-        float mid = midBins > 0 ? (midRaw / midBins) * midBoost : 0;
-        float treble = trebleBins > 0 ? (trebleRaw / trebleBins) * trebleBoost : 0;
+        float low = lowBins > 0 ? lowRaw / lowBins * lowBoost : 0;
+        float bass = bassBins > 0 ? bassRaw / bassBins * bassBoost : 0;
+        float mid = midBins > 0 ? midRaw / midBins * midBoost : 0;
+        float treble = trebleBins > 0 ? trebleRaw / trebleBins * trebleBoost : 0;
 
         // if you want the tuple in this order:
         return (low, bass, mid, treble);

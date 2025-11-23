@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using System.Windows.Threading;
 using NAudio.CoreAudioApi;
 using NAudio.Wave;
+using NekoSuneOSC.NekosAudiolink;
 using VRCOSC.App.SDK.Modules;
 using VRCOSC.App.SDK.Parameters;
 
-namespace NekoSuneOSC.NekosAudiolink;
+namespace NekoSuneOSC.NekoSuneOSC.NekosAudiolink;
 
 [ModuleTitle("Nekos Audiolink")]
 [ModuleDescription("Listens to the selected audio output device and provides OSC parameters for volume, frequencies and direction. To select audio device go to the 'Run' tab")]
@@ -135,8 +136,8 @@ public class NekosAudiolinkModule : Module
         else
         {
             int volumeBoostFactor = 8; // boost to get reasonable values for volume
-            leftEarVolume = (leftSum / frameCount) * volumeBoostFactor;
-            rightEarVolume = (rightSum / frameCount) * volumeBoostFactor;
+            leftEarVolume = leftSum / frameCount * volumeBoostFactor;
+            rightEarVolume = rightSum / frameCount * volumeBoostFactor;
         }
 
         // Calculate band volumes
@@ -176,7 +177,7 @@ public class NekosAudiolinkModule : Module
                 leftEarSmoothedVolume = 0;
                 rightEarSmoothedVolume = 0;
             }
-            direction = NekosAudiolinkUtils.VRCClamp(-(leftEarSmoothedVolume * 2) + (rightEarSmoothedVolume * 2) + 0.5f);
+            direction = NekosAudiolinkUtils.VRCClamp(-(leftEarSmoothedVolume * 2) + rightEarSmoothedVolume * 2 + 0.5f);
             volume = (leftEarSmoothedVolume + rightEarSmoothedVolume) / 2.0f;
 
             // Send parameters only if they have changed significantly

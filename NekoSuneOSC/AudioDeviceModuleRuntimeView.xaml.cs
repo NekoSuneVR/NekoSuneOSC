@@ -1,6 +1,6 @@
 using NAudio.CoreAudioApi;
 using NAudio.CoreAudioApi.Interfaces;
-using NekoSuneOSC.NekosAudiolink;
+using NekoSuneOSC.NekoSuneOSC.NekosAudiolink;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;

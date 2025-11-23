@@ -1,7 +1,7 @@
 using System;
 using NAudio.Dsp;
 
-namespace NekoSuneOSC.NekoSuneOSC.NekosAudiolink;
+namespace NekoSuneOSC.NekosAudiolink;
 
 public static class NekosAudiolinkUtils
 {

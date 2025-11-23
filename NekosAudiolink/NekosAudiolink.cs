@@ -9,7 +9,7 @@ using NekoSuneOSC.NekosAudiolink;
 using VRCOSC.App.SDK.Modules;
 using VRCOSC.App.SDK.Parameters;
 
-namespace NekoSuneOSC.NekoSuneOSC.NekosAudiolink;
+namespace NekoSuneOSC.NekosAudiolink;
 
 [ModuleTitle("Nekos Audiolink")]
 [ModuleDescription("Listens to the selected audio output device and provides OSC parameters for volume, frequencies and direction. To select audio device go to the 'Run' tab")]
